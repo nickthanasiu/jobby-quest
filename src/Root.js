@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import App from './App';
-import Welcome from './components/welcome/Welcome';
+import Signup from './components/auth/Signup';
 
 
 
@@ -13,7 +13,7 @@ const Root = ({ store }) => {
         <Provider store={store}>
             <App>
                 <Router>
-                    <Route exact path="/" component={Welcome} />
+                    <Route exact path="/" component={Signup} />
                 </Router>
             </App>
         </Provider>
