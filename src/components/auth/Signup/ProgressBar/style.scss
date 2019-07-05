@@ -1,0 +1,20 @@
+@import '../../../../styles/_colors.scss';
+
+$progressbar_outer: $lightgrey;
+$progressbar_inner: $blue_primary;
+
+.progressbar {
+    
+    .progressbar__outer {
+        height: .375rem;
+        background-color: $progressbar_outer;
+    
+        .progressbar__inner {
+            
+            height: 100%;
+            width: 0;
+            background-color: $progressbar_inner;
+            z-index: 1000;
+        }
+    }
+}
