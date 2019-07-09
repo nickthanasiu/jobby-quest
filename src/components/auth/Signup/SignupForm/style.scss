@@ -1,0 +1,37 @@
+@import '../../../../styles/_colors';
+
+$input_active: $blue_primary;
+
+.signup__form {
+
+    // @TODO: Fix colors 
+    .input-group {
+        display: flex;
+        flex-direction: column-reverse;
+
+        & > label {
+            font-weight: 500;
+            font-size: 1rem;
+            color: rgba(0, 0, 0, .6);
+        }
+
+         input:focus + label {
+             color: $input_active;
+         }
+
+        & > input {
+            height: 2.75rem;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, .6);
+            margin-bottom: 2rem;
+            color: black;
+            font-size: 1rem;
+            font-weight: 500;
+
+            &:active, &:focus {
+                outline: none;
+                border-bottom: 1px solid $input_active;
+            }
+        }
+    }
+}

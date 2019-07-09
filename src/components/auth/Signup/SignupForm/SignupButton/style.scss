@@ -1,0 +1,18 @@
+@import '../../../../../styles/_colors';
+
+$signup_btn: $blue_primary;
+
+.signup__button {
+    border-radius: 10px;
+    width: 100%;
+    height: 4.675rem;
+    background-color: $signup_btn;
+    color: white;
+    font-weight: 500;
+    font-size: 1.25rem;
+    cursor: pointer;
+
+    &:disabled {
+        background-color: rgba($signup_btn, 0.6);
+    }
+}

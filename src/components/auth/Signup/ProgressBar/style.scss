@@ -15,6 +15,7 @@ $progressbar_inner: $blue_primary;
             width: 0;
             background-color: $progressbar_inner;
             z-index: 1000;
+            transition: width .5s ease;
         }
     }
 }

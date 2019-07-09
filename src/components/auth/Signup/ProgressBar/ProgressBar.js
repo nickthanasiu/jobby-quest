@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getFormSyncErrors } from 'redux-form';
 import { connect } from 'react-redux';
 
 import './style.scss';
 
-const countSyncErrors = (syncErrors) => {
-    return Object.keys(syncErrors).length;
-}
-
 class ProgressBar extends Component {
-    state = {
-        progressPercentage: 1 - (countSyncErrors(this.props.syncErrors) / 4)
-    };
+    constructor(props) {
+        super(props);
 
-    componentDidMount() {
-        console.log('Progress props: ', this.props);
+        this.state = {
+            progressPercentage: this.calculateProgressPercentage(this.props.syncErrors)
+        };
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         if (this.props.syncErrors !== prevProps.syncErrors) {
             this.setState({
-                progressPercentage:  1 - (countSyncErrors(this.props.syncErrors) / 4)
+                progressPercentage: this.calculateProgressPercentage(this.props.syncErrors)
             });
         }
+    }
+
+    calculateProgressPercentage = (syncErrors) => {
+        const syncErrorsCount = Object.keys(syncErrors).length;
+        return 1 - (syncErrorsCount / 4);
     }
 
     render() {
@@ -39,8 +41,12 @@ class ProgressBar extends Component {
     }
 } 
 
-export default connect(
-    state => ({
-        syncErrors: getFormSyncErrors('signup')(state)
-    })
-)(ProgressBar);
+const mapStateToProps = state => ({
+    syncErrors: getFormSyncErrors('signup')(state),
+});
+
+ProgressBar.propTypes = {
+    syncErrors: PropTypes.object.isRequired,
+};
+
+export default connect(mapStateToProps)(ProgressBar);
