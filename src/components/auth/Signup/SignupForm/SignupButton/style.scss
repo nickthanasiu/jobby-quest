@@ -11,6 +11,7 @@ $signup_btn: $blue_primary;
     font-weight: 500;
     font-size: 1.25rem;
     cursor: pointer;
+    transition: background-color .5s ease;
 
     &:disabled {
         background-color: rgba($signup_btn, 0.6);
