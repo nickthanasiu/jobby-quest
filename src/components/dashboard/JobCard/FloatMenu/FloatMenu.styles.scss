@@ -1,0 +1,49 @@
+.float-menu {
+    &.hidden {
+        display: none;
+    }
+
+    height: 20rem;
+    width: 13rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: #fff; 
+    z-index: 10000;
+    opacity: 1;
+
+    .hide-menu {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        z-index: -100;
+        cursor: auto;
+    }
+
+    .float-menu__item {
+        display: flex;
+        align-items: center;
+        height: 2.5rem;
+        font-size: .8rem;
+        font-weight: 400;
+        padding: .25rem .5rem;
+
+        &:hover {
+            background-color: rgba(0,0,0,.025);
+        }
+
+        & > span {
+            margin-left: .5rem;
+        }
+
+        &:hover.delete {
+            color: rgb(224, 109, 109);    
+        }
+    }
+
+    .divider {
+        width: 100%;
+        border-bottom: 1px solid lightgrey;
+        margin: .75rem auto;
+    }
+}

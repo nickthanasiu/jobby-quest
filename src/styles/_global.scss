@@ -5,4 +5,8 @@ html, body {
     font-family: 'Roboto', sans-serif;
     height: 100%;
   }
+
+  div, span {
+    box-sizing: border-box;
+  }
   

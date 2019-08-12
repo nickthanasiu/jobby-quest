@@ -4,11 +4,18 @@ import {
     CREATE_CARD_REQUEST,
     CREATE_CARD_FAILURE,
     CREATE_CARD_SUCCESS,
+    FETCH_JOBS_REQUEST,
+    FETCH_JOBS_FAILURE,
+    FETCH_JOBS_SUCCESS,
 } from './types';
+
+const API_URL = 'localhost:8000/api';
+
+//export const fetchJobs = (filter)
 
 const createCardRequest = url => ({
     type: CREATE_CARD_REQUEST,
-    payload: posts
+    payload: url
 });
 
 const createCardSuccess = cardData => ({
@@ -32,3 +39,4 @@ export const createCard = url => async dispatch => {
         dispatch(createCardFailure(err));
     }
 };
+

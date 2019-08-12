@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 // Components
-import JobCard from '../JobCard';
+import URLInput from '../URLInput';
+import JobsList from '../JobsList';
+
 
 // Styles
 import './Dashboard.styles.scss';
@@ -17,7 +19,7 @@ const Dashboard = () => {
             </header>
 
             <main className="dashboard__main">
-                <JobCard />
+                <JobsList />
             </main>
         </div>
     );
