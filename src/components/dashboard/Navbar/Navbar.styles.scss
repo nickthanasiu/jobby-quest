@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    align-items: center;
+
+    .navbar__menu-btn-wrapper {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar__heading {
+        font-size: 1rem;
+        margin-left: 2rem;
+        margin-right: 6rem;
+    }
+
+    .navbar__filter-by {
+        font-size: .85rem;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 2rem;
+        //color: rgba(0, 0, 0, .7);
+
+        & > span {
+            margin-right: .25rem;
+        }
+    }
+}
