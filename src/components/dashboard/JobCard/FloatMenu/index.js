@@ -1,1 +1,1 @@
-export { default } from './FloatMenu.container';
+export { default } from './FloatMenu';

@@ -11,7 +11,32 @@ import {
 
 const API_URL = 'localhost:8000/api';
 
-//export const fetchJobs = (filter)
+const fetchJobsRequest = () => ({
+    type: FETCH_JOBS_REQUEST
+});
+
+const fetchJobsSuccess = jobData => ({
+    type: FETCH_JOBS_SUCCESS,
+    payload: jobData
+});
+
+const fetchJobsFailure = err => ({
+    type: FETCH_JOBS_FAILURE,
+    payload: err,
+    error: true
+});
+
+export const fetchJobs = () => async dispatch => {
+    try {
+        dispatch(fetchJobsRequest());
+
+        const response = await axios.get(`http://${API_URL}/jobs`);
+        dispatch(fetchJobsSuccess(response.data.jobs));
+    } catch (err) {
+        dispatch(fetchJobsFailure(err));
+    }
+}
+
 
 const createCardRequest = url => ({
     type: CREATE_CARD_REQUEST,

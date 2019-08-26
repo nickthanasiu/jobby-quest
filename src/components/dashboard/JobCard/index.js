@@ -1,1 +1,1 @@
-export { default } from './JobCard.component';
+export { default } from './JobCard';
