@@ -2,12 +2,17 @@ import {
     FETCH_JOBS_REQUEST,
     FETCH_JOBS_SUCCESS,
     FETCH_JOBS_FAILURE,
+    ADD_JOB_REQUEST,
+    ADD_JOB_SUCCESS,
+    ADD_JOB_FAILURE,
 } from '../actions/types';
 
 const initialState = {
     jobs: [],
     jobsLoading: false,
-    jobsError: ''
+    jobsError: '',
+    addJobLoading: false,
+    addJobError: '',
 };
 
 export default (state = initialState, action) => {
@@ -15,7 +20,8 @@ export default (state = initialState, action) => {
         case FETCH_JOBS_REQUEST:
             return {
                 ...state,
-                jobsLoading: true
+                jobsLoading: true,
+                jobsError: '',
             };
         case FETCH_JOBS_SUCCESS:
             return {
@@ -29,6 +35,24 @@ export default (state = initialState, action) => {
                 jobsError: action.payload,
                 jobsLoading: false
             }
+        case ADD_JOB_REQUEST:
+            return {
+                ...state,
+                addJobLoading: true,
+                addJobError: ''
+            }
+        case ADD_JOB_SUCCESS:
+            return {
+                ...state,
+                jobs: [...state.jobs, action.payload],
+                addJobLoading: false
+            };
+        case ADD_JOB_FAILURE:
+            return {
+                ...state,
+                addJobError: action.payload,
+                addJobLoading: false
+            };
         default:
             return state;
     }

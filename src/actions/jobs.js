@@ -4,10 +4,15 @@ import {
     CREATE_CARD_REQUEST,
     CREATE_CARD_FAILURE,
     CREATE_CARD_SUCCESS,
+    ADD_JOB_REQUEST,
+    ADD_JOB_FAILURE,
+    ADD_JOB_SUCCESS,
     FETCH_JOBS_REQUEST,
     FETCH_JOBS_FAILURE,
     FETCH_JOBS_SUCCESS,
 } from './types';
+import { async } from 'q';
+import { fdatasyncSync } from 'fs';
 
 const API_URL = 'localhost:8000/api';
 
@@ -65,3 +70,40 @@ export const createCard = url => async dispatch => {
     }
 };
 
+const addJobRequest = () => ({
+    type: ADD_JOB_REQUEST
+});
+
+const addJobSuccess = newJob => ({
+    type: ADD_JOB_SUCCESS,
+    payload: newJob
+});
+
+const addJobFailure = (err) => ({
+    type: ADD_JOB_FAILURE,
+    payload: err,
+    error: true
+});
+
+export const addJob = ({
+    url,
+    company,
+    job_title,
+    img_url
+}) => async dispatch => {
+    dispatch(addJobRequest());
+
+    axios.post(`http://${API_URL}/jobs/`, { job: {
+        url,
+        company,
+        job_title,
+        img_url
+    }})
+    .then(res => {
+        console.log("RES DATA: ", res.data);
+        dispatch(addJobSuccess(res.data.newJob));
+    })
+    .catch(err => {
+        dispatch(addJobFailure(err.message || err));
+    });
+};

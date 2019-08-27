@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // Components
 import URLInput from '../URLInput';
 import Navbar from '../Navbar';
+import ManualInput from '../ManualInput';
 import JobsList from '../JobsList';
 import SidebarMenu from '../SidebarMenu';
 
@@ -21,6 +22,10 @@ const Dashboard = () => {
 
             <div className={`sidebar-menu-wrapper ${!sidebarMenuVisible ? 'hidden' : '' }`}>
                 <SidebarMenu />
+            </div>
+
+            <div className="manual-input-wrapper">
+                <ManualInput />
             </div>
 
             <main className={`dashboard__main ${sidebarMenuVisible ? 'sidebar-visible' : ''}`}>

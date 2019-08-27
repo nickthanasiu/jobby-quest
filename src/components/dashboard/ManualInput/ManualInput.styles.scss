@@ -1,0 +1,29 @@
+.manual-input {
+
+    .manual-input__form {
+        height: 10rem;
+        width: 28rem;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        //border: 1px solid lightcoral;
+
+        .manual-input__label-group {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            //border: 1px solid lightgrey;
+            height: 4rem;
+            width: 50%;
+            padding: 1rem;
+            font-size: .75rem;
+
+            .manual-input__input {
+                width: 70%;
+            }
+        }
+    }
+}

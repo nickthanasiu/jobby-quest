@@ -46,11 +46,26 @@ class JobCard extends React.Component {
         const { user_interest_rating } = this.props;
         let stars = [];
         for (let i = 0; i < user_interest_rating; i++) {
-            stars = [...stars, <MdStar size={'20px'} id={`${i}`} onClick={() => console.log('clicky: ', i + 1)} />];
+            stars = [
+                ...stars,
+                <MdStar
+                    key={i} 
+                    id={`${i}`}
+                    size={'20px'}
+                    onClick={() => console.log('clicky: ', i + 1)}
+                />
+            ];
         }
 
         for (let i = 0; i < (3 - user_interest_rating); i++) {
-            stars = [...stars, <MdStarBorder size={'20px'} onClick={() => console.log('clicky: ', user_interest_rating + i + 1)} />];
+            stars = [
+                ...stars,
+                <MdStarBorder
+                    key={2 - i}
+                    size={'20px'}
+                    onClick={() => console.log('clicky: ', user_interest_rating + i + 1)} 
+                />
+            ];
         }
 
         return stars;
