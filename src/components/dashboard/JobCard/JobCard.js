@@ -27,10 +27,11 @@ class JobCard extends React.Component {
         };
     }
 
-    toggleNotesSection = () =>
+    toggleNotesSection = () => {
         this.setState({
             expanded: !this.state.expanded
         });
+    }
     
     toggleFloatMenu = () =>
         this.setState({

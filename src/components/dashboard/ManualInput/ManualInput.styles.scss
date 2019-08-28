@@ -1,9 +1,40 @@
+$submit_btn_background_color: rgb(0, 105, 237);
+$coral: coral;
+
 .manual-input {
+    width: 100%;
+    height: 100%;
+    padding: .5rem 1rem;
+
+    animation: fadeIn ease 1s;
+
+    .manual-input__close-btn {
+        box-sizing: border-box;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        padding: .25rem;
+        color: coral;
+        cursor: pointer;
+        position: absolute;
+        top: .375rem;
+        right: .5rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+
+        transition: all .5s ease;
+
+        &:hover {
+            background-color: coral;
+            color: darken($coral, 10%);
+            color: #fff;
+        }
+    }
 
     .manual-input__form {
-        height: 10rem;
-        width: 28rem;
-
         display: flex;
         flex-wrap: wrap;
 
@@ -14,16 +45,58 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-
-            //border: 1px solid lightgrey;
-            height: 4rem;
+            
+            height: 6rem;
             width: 50%;
             padding: 1rem;
             font-size: .75rem;
+            
+            font-weight: 700;
 
             .manual-input__input {
-                width: 70%;
+                width: 100%;
+                height: 3rem;
+                margin-top: 1rem;
+                padding-left: .25rem;
+                border: none;
+                border-bottom: 1px solid lightgrey;
+
+                &:focus {
+                    outline: none;
+                    border-bottom: 1px solid $submit_btn_background_color;
+                }
+            }
+
+            
+        }
+
+        .manual-input__submit-btn {
+            height: 3rem;
+            width: 8rem;
+            padding: .5rem;
+            margin-top: 2rem;
+            margin-left: 1rem;
+            cursor: pointer;
+            border: none;
+            background-color: $submit_btn_background_color;
+            color: #fff;
+
+            &:hover {
+                background-color: darken($submit_btn_background_color, 5%);
+            }
+
+            &:focus {
+                outline: none;
             }
         }
     }
 }
+
+@keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }

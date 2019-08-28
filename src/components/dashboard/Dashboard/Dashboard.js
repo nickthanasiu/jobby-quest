@@ -24,10 +24,6 @@ const Dashboard = () => {
                 <SidebarMenu />
             </div>
 
-            <div className="manual-input-wrapper">
-                <ManualInput />
-            </div>
-
             <main className={`dashboard__main ${sidebarMenuVisible ? 'sidebar-visible' : ''}`}>
                 <JobsList />
             </main>
